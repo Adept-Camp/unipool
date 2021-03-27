@@ -5,8 +5,4 @@ build
 package-lock.json
 .idea
 yarn.lock
-<<<<<<< HEAD
 .env
-=======
-.env
->>>>>>> honey-drips
