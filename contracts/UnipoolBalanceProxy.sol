@@ -6,7 +6,7 @@ import "./Unipool.sol";
 contract UnipoolBalanceProxy {
     using SafeERC20 for IERC20;
 
-    IERC20 public tradedToken = IERC20(0x71850b7E9Ee3f13Ab46d67167341E4bDc905Eef9);
+    IERC20 public tradedToken = IERC20(0x5f1F81de1D21b97a5d0D5d62d89BDE9DdEc27325);
     Unipool public pool;
 
     constructor(Unipool _pool) public {
