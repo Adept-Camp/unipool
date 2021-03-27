@@ -1,6 +1,9 @@
+require('dotenv').config()
 const TruffleConfig = require('@aragon/truffle-config-v5/truffle-config')
 const HDWalletProvider = require('@truffle/hdwallet-provider')
 
+
+const MNEMONIC = process.env.MNEMONIC
 // See <http://truffleframework.com/docs/advanced/configuration>
 // to customize your Truffle configuration!
 
