@@ -19,7 +19,7 @@ TruffleConfig.networks.xdai = {
    provider: function() {
        return new HDWalletProvider(
            process.env.MNEMONIC,
-           "https://dai.poa.network"
+           "https://rpc.xdaichain.com/"
        )
    },
    network_id: 100,
