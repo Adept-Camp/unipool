@@ -9,7 +9,7 @@ const MNEMONIC = process.env.MNEMONIC
 
 TruffleConfig.networks.development = {
     host: 'localhost',
-    port: 9545,
+    port: 7545,
     network_id: '*',
     gas: 8000000,
     gasPrice: 1000000000, // web3.eth.gasPrice

@@ -15,11 +15,12 @@ const network = () => argValue('--network', 'local');
 
 module.exports = async function (deployer) {
     if (network() === 'xdai') {
-        await deployer.deploy(UnipoolFactory, HONEY_TOKEN_XDAI_ADDRESS);
+        await deployer.deploy(UnipoolFactory);
     } else {
         const senderAccount = (await web3.eth.getAccounts())[0];
         const BN = web3.utils.toBN;
-
+        await deployer.deploy(Migrations);
+        await deployer.deploy(UnipoolFactory, HONEY_TOKEN_XDAI_ADDRESS);
         await deployer.deploy(HoneyTokenMock, senderAccount);
         await deployer.deploy(OtherTokenMock);
         await deployer.deploy(UniswapPairMock, HoneyTokenMock.address, OtherTokenMock.address);
@@ -36,5 +37,6 @@ module.exports = async function (deployer) {
 
         await deployer.deploy(UnipoolMock, uniswapToken.address, HoneyTokenMock.address, UniswapRouterMock.address);
         await deployer.deploy(UnipoolForeignPairMock, uniswapToken2.address, HoneyTokenMock.address, UniswapRouterMock.address);
+       
     }
 };
