@@ -27,10 +27,10 @@ TruffleConfig.networks.xdai = {
 }
 
 TruffleConfig.networks.rinkeby.skipDryRun = true;
-TruffleConfig.networks.rinkeby.gasPrice = 1e11; // 100 Gwei
+TruffleConfig.networks.rinkeby.gasPrice = 2e11; // 100 Gwei
 
 // UPDATE TO AN ACCEPTABLE GAS PRICE
-TruffleConfig.networks.mainnet.gasPrice = 1e11; // 100 Gwei
+TruffleConfig.networks.mainnet.gasPrice = 2e11; // 100 Gwei
 
 TruffleConfig.compilers = {
     solc: {

@@ -3,7 +3,7 @@ const Unipool = artifacts.require('./Unipool.sol');
 const UnipoolMock = artifacts.require('./UnipoolMock.sol');
 const UnipoolForeignPairMock = artifacts.require('./UnipoolMock.sol');
 const HoneyTokenMock = artifacts.require('./HoneyTokenMock.sol');
-const HONEY_TOKEN_XDAI_ADDRESS = '0x5f1F81de1D21b97a5d0D5d62d89BDE9DdEc27325';
+const AC_TOKEN_XDAI_ADDRESS = '0x5f1F81de1D21b97a5d0D5d62d89BDE9DdEc27325';
 const OtherTokenMock = artifacts.require('./UniswapTokenMock.sol');
 const AnotherTokenMock = artifacts.require('./UniswapTokenMock.sol');
 const UniswapPairMock = artifacts.require('./UniswapPairMock.sol');
@@ -11,7 +11,7 @@ const UniswapForeignPairMock = artifacts.require('./UniswapPairMock.sol');
 const UniswapRouterMock = artifacts.require('./UniswapRouterMock.sol');
 
 const argValue = (arg, defaultValue) => process.argv.includes(arg) ? process.argv[process.argv.indexOf(arg) + 1] : defaultValue;
-const network = () => argValue('--network', 'local');
+const network = () => argValue('--network', 'xdai');
 
 module.exports = async function (deployer) {
     if (network() === 'xdai') {
@@ -20,7 +20,7 @@ module.exports = async function (deployer) {
         const senderAccount = (await web3.eth.getAccounts())[0];
         const BN = web3.utils.toBN;
         await deployer.deploy(Migrations);
-        await deployer.deploy(UnipoolFactory, HONEY_TOKEN_XDAI_ADDRESS);
+        await deployer.deploy(UnipoolFactory, AC_TOKEN_XDAI_ADDRESS);
         await deployer.deploy(HoneyTokenMock, senderAccount);
         await deployer.deploy(OtherTokenMock);
         await deployer.deploy(UniswapPairMock, HoneyTokenMock.address, OtherTokenMock.address);
